@@ -30,6 +30,8 @@ on boot
     # NFC
     setprop ro.nfc.port "I2C"
 
+    setprop sys.usb.ffs.aio_compat 1
+
 on init
     export LD_PRELOAD "libshim_zw.so"
 

@@ -37,7 +37,6 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libxml2 \
     tinycap \
-    tinymix \
     tinyplay \
     xaplay
 

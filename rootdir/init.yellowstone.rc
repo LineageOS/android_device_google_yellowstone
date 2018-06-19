@@ -16,6 +16,9 @@ on fs
     setprop ro.crypto.fuse_sdcard true
     mount_all /fstab.yellowstone --early
 
+    # Start HW service manager early
+    start hwservicemanager
+
 on boot
     # Max resolution supported for Miracast is 1080p, represented interms of macroblocks
     setprop nvwfd.maxresolution_macroblocks 8160
@@ -40,10 +43,14 @@ on init
 
 on late-fs
     # Start services for bootanim
-    start hwservicemanager
     start servicemanager
     start surfaceflinger
     start bootanim
+    # Make sure HW service manager started and start required HAL services
+    wait_for_prop hwservicemanager.ready true
+    start configstore-hal-1-0
+    start gralloc-2-0
+
     # Mount RW partitions which need run fsck
     mount_all /fstab.yellowstone --late
 

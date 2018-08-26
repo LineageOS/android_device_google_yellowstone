@@ -51,6 +51,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Graphics
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 USE_OPENGL_RENDERER := true
 
 # Kernel

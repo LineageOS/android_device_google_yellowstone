@@ -19,6 +19,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.config.persist_cal_path=/persist \
     persist.config.calibration_fac=/sdcard/config/calibration.xml
 
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bt.bdaddr_path=/persist/bt_mac.txt
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.override_null_lcd_density=1 \

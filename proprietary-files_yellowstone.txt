@@ -1,0 +1,96 @@
+# Bluetooth
+vendor/firmware/bcm43341.hcd
+
+# Camera
+lib/hw/camera.tegra.so
+lib/libcxsparse.so
+lib/libjpegnv.so
+lib/libpowerservice_client.so
+vendor/lib/libardrv_dynamic.so
+vendor/lib/libnvcam_imageencoder.so
+vendor/lib/libnvcamerahdr.so
+vendor/lib/libnvcamerahdr_v3.so
+vendor/lib/libnvcameratools.so
+vendor/lib/libnvcontrol_jni.so
+vendor/lib/libnvisp_v3.so
+vendor/lib/libpowerservice.so
+vendor/lib/libnvsm.so
+
+# LBH
+bin/init_lbh.sh
+
+# NFC
+vendor/firmware/bcm43341/BCM43341NFCB0_002.001.009.0031.0059_Generic_I2C_NCD_Signed_configdata.ncd
+vendor/firmware/bcm43341/BCM43341NFCB0_002.001.009.0031.0059_Generic_PreI2C_NCD_Signed_configdata.._.ncd
+
+# RIL Firmware (Icera)
+etc/ril_atc.config
+vendor/firmware/icera/loader.wrapped
+vendor/firmware/icera/modem.wrapped
+vendor/firmware/icera/secondary_boot.wrapped
+vendor/firmware/icera/nvidia-e1729/productConfig.bin
+vendor/firmware/icera/nvidia-e1729-nala/productConfig.bin
+
+# Sensor
+bin/sensorhubd
+bin/sh_updater
+lib/hw/sensors.tegra.so
+lib/libmplmpu.so
+lib/libsensors.base.so
+lib/libsensors.iio.lights.so
+vendor/indelible/sensor_hub_tgt.bin
+
+# Tango
+-app/TangoCore.apk:app/TangoCore/TangoCore.apk
+-app/TangoDiscovery.apk:app/TangoDiscovery/TangoDiscovery.apk
+bin/tango_service
+framework/libtango_device.jar
+framework/libtango_device2.jar
+lib/libtango_client_api.so
+lib/libtango_client_api.so.0
+lib/libtango_core.so
+lib/libtango_hal.so
+lib/libtango_hal_grosbag.so
+lib/libtango_navigation_service.so
+lib/libtango_service_library.so
+lib/libtango_utility_lib.so
+lib/libtango_ux_internal_support_library.so
+
+# Touchscreen (Raydium)
+bin/rm_ts_server
+lib/hw/ts.default.so
+lib/librm31080.so
+lib/librm_ts_service.so
+lib/para_10_02_00_10.so
+lib/para_10_02_00_20.so
+lib/para_10_02_00_b0.so
+lib/para_10_03_00_10.so
+lib/para_10_03_00_20.so
+lib/para_10_03_00_b0.so
+lib/para_10_04_00_10.so
+lib/para_10_04_00_20.so
+lib/para_10_04_00_b0.so
+lib/para_10_04_00_c0.so
+lib/para_10_05_00_c0.so
+lib/para_10_06_00_b0.so
+lib/para_10_07_00_b0.so
+lib/para_10_08_00_10.so
+lib/para_10_08_00_20.so
+lib/para_10_08_00_b0.so
+lib/para_10_09_00_c0.so
+lib/para_10_09_01_c0.so
+lib/para_10_09_02_c0.so
+lib/para_10_0A_00_b0.so
+lib/para_12_01_00_a0.so
+lib/para_12_01_01_a0.so
+lib/para_12_01_02_a0.so
+lib/para_12_01_03_a0.so
+
+# Wi-fi
+etc/nvram_43341_rev4.txt
+
+# Wi-Fi Firmware
+vendor/firmware/bcm43341/fw_bcmdhd.bin
+vendor/firmware/bcm43341/fw_bcmdhd_a0.bin
+vendor/firmware/bcm43341/fw_bcmdhd_apsta.bin
+vendor/firmware/bcm43341/fw_bcmdhd_p2p.bin

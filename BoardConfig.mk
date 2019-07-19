@@ -42,6 +42,11 @@ TARGET_NO_BOOTLOADER := true
 # Graphics
 USE_OPENGL_RENDERER := true
 
+# Kernel
+TARGET_KERNEL_SOURCE := kernel/google/yellowstone
+TARGET_KERNEL_CONFIG := yellowstone_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage
+
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216

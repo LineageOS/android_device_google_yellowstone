@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# AAPT
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

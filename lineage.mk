@@ -16,6 +16,9 @@
 # Inherit common device specific configuration
 $(call inherit-product, device/google/yellowstone/device.mk)
 
+# Inherit makefile to set shipping API level
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
+
 # Inherit AOSP base configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 

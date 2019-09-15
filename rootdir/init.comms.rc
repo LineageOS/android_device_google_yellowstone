@@ -20,8 +20,8 @@ on boot
 
     chown bluetooth bluetooth ro.bt.bdaddr_path
     chown bluetooth bluetooth /system/etc/bluetooth
-    chmod 0644 /persist/bt_mac.txt
-    chown bluetooth bluetooth /persist/bt_mac.txt
+    chmod 0644 /mnt/vendor/persist/bt_mac.txt
+    chown bluetooth bluetooth /mnt/vendor/persist/bt_mac.txt
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path

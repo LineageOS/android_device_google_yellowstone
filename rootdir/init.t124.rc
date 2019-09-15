@@ -35,8 +35,8 @@ on post-fs-data
     setprop hdcp2x.srm.name     "hdcp2x.srm"
     setprop hdcp2xtest.srm.name "hdcp2xtest.srm"
 
-    chmod 0644 /persist/wifi_mac.txt
-    chown root root /persist/wifi_mac.txt
+    chmod 0644 /mnt/vendor/persist/wifi_mac.txt
+    chown root root /mnt/vendor/persist/wifi_mac.txt
     insmod /system/lib/modules/bcmdhd.ko
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     mkdir /data/nvcam 0700 media camera
@@ -49,17 +49,17 @@ on post-fs-data
 
     # Create directory for runtime calibration data
     # Remount to rw and set perm to 770 till new diag product is created
-    mkdir /persist/touchscreen 0777 system system
-    export TOUCH_CONF_DIR /persist/touchscreen
-    export TOUCH_DATA_DIR /persist/touchscreen
-    chown system system /persist/touchscreen/raydium_ts_conf.bin
-    chmod 666 /persist/touchscreen/raydium_ts_conf.bin
+    mkdir /mnt/vendor/persist/touchscreen 0777 system system
+    export TOUCH_CONF_DIR /mnt/vendor/persist/touchscreen
+    export TOUCH_DATA_DIR /mnt/vendor/persist/touchscreen
+    chown system system /mnt/vendor/persist/touchscreen/raydium_ts_conf.bin
+    chmod 666 /mnt/vendor/persist/touchscreen/raydium_ts_conf.bin
 
     # Create directory for camera calibration data
     mkdir /mnt/factory/camera 0666 system system
 
     # Create directory for camera log
-    mkdir /persist/camera 0777 system system
+    mkdir /mnt/vendor/persist/camera 0777 system system
 
     # CPU volt cap
     mkdir /data/misc/cvc 0774 system system

@@ -76,8 +76,8 @@ on post-fs-data
     mkdir /data/system/lib 0775 system system
 
     # Set /persist permissions
-    chown system system /persist
-    chmod 0771 /persist
+    chown system system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
 
 # Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
 service watchdogd /sbin/watchdogd 10 110

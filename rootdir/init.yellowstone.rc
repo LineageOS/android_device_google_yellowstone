@@ -96,3 +96,6 @@ service tango_service /system/bin/tango_service
     class main
     user root
     group root
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind

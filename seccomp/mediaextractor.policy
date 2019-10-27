@@ -1,3 +1,0 @@
-# Allow device specific system calls
-readlinkat: 1
-pread64: 1

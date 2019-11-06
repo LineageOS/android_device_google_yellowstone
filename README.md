@@ -29,7 +29,6 @@
 ![Google Project Tango Development Kit](https://raw.githubusercontent.com/wllmtrng/wllmtrng.github.io/images/Project_Tango/Project_Tango_Tablet_SDK_Specifications/tablet-hardware.png "Google Project Tango Development Kit")
  ## Copyright
  ```
-#
 # Copyright (C) 2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

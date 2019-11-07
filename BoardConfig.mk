@@ -55,6 +55,7 @@ USE_OPENGL_RENDERER := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/google/yellowstone
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := yellowstone_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 

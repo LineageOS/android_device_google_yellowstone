@@ -15,6 +15,8 @@
 
 DEVICE_PATH := device/google/yellowstone
 
+BOARD_SEPOLICY_DIRS += device/google/yellowstone/sepolicy
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -58,6 +60,7 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/google/yellowstone
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := yellowstone_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 

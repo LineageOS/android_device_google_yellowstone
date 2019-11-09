@@ -1,0 +1,126 @@
+/dev/tegra-throughput	0666	system	system
+/dev/knvmap     0660    system  system
+/dev/nvmap      0666    system  system
+/dev/tegra_avp  0660    media   media
+/dev/tegra_avpchannel   0660    media   media
+/dev/tegra_audio_avpchannel	0660	media	media
+/dev/tegra_rpc  0660    media   media
+/dev/tegra_sema	0660    media   media
+/dev/tegra_mediaserver  0660    media   media
+/dev/cam_ts*    0660    media   camera
+/dev/sh_*       0660    system  system
+/dev/ov2710     0660    media   camera
+/dev/imx091     0660    media   camera
+/dev/ov7695     0660    media   camera
+/dev/mt9m114    0660    media   camera
+/dev/ov9772     0660    media   camera
+/dev/imx135     0660    media   camera
+/dev/ar0261     0660    media   camera
+/dev/ov4682     0660    media   camera
+/dev/ov7251     0660    media   camera
+/dev/ov9762	0660	media	camera
+/dev/ov5693*     0660    media   camera
+/dev/tegra_camera 0660  media   camera
+/dev/camera*    0660    media   camera
+/dev/focuser*   0660    media   camera
+/dev/torch*     0660    media   camera
+/dev/video0     0660    media   camera
+/dev/video1     0660    media   camera
+/dev/mipi-cal   0660    media   camera
+/dev/spdif*     0660    system  audio
+/dev/tegra_dc*  0660    system  system
+/dev/ttyACM*    0660    radio   system
+/dev/ttyACM2    0660    media   system
+/dev/nvhdcp0    0666    system  system
+/dev/nvhdcp1    0660    system  system
+/dev/nvhost-vi         0660   media  camera
+/dev/nvhost-isp        0660   media  camera
+/dev/nvhost-ctrl-vi    0660   media  camera
+/dev/nvhost-isp.1      0660   media  camera
+/dev/nvhost-vi.1       0660   media  camera
+/dev/nvhost-msenc      0660   media  camera
+/dev/nvhost-ctrl-vi.1  0660   media  camera
+/dev/nvhost-ctrl-isp   0660   media  camera
+/dev/nvhost-ctrl-isp.1 0660   media  camera
+/dev/nvhost-vic        0666   root   root
+/dev/nvhost-gpu        0666   root   root
+/dev/nvhost-tsec       0666   root   root
+/dev/nvhost-ctrl       0666   root   root
+/dev/nvhost-as-gpu     0666   root   root
+/dev/nvhost-ctrl-gpu   0666   root   root
+/dev/nvhost-dbg-gpu    0666   root   root
+/dev/nvhost-prof-gpu   0666   root   root
+/dev/tlk_device 0660    system  drmrpc
+/dev/ttyHS1	0660	root	system
+/dev/ttyHS2	0660	bluetooth	bluetooth
+/dev/ttyTHS0	0660	root	system
+/dev/ttyTHS1	0660	root	system
+/dev/ttyTHS2	0660	bluetooth	bluetooth
+# FM, V4L2, and Radio
+/dev/radio      0666    system  radio
+/dev/mpu        0640    system  system
+/dev/mpuirq     0640    system  system
+/dev/accelirq   0640    system  system
+/dev/timerirq   0640    system  system
+/dev/raydium_ts 0660    system  system
+/dev/ion        0666    system  system
+/dev/timerinfo  0440    system  system
+/dev/cpu_freq_min	0660	system	system
+/dev/cpu_freq_max	0660	system	system
+/dev/gpu_freq_min	0660	system	system
+/dev/gpu_freq_max	0660	system	system
+/dev/emc_freq_min	0660	system	system
+/dev/min_online_cpus	0660	system	system
+/dev/max_online_cpus	0660	system	system
+/dev/quadd	0660	shell	shell
+/dev/quadd_auth	0660	system	system
+/sys/devices/virtual/input/input*	enabled	0660	system	system
+/dev/gps	0664	system	system
+/sys/power/sysedp/consumers/icemdm state 0660 radio system
+
+# CPU Cores
+/sys/devices/system/cpu/cpu* cpuquiet/active 0664 system system
+/sys/devices/system/cpu/cpu* cpufreq/scaling_governor 0664 system system
+/sys/devices/system/cpu/cpu* cpufreq/scaling_setspeed 0664 system system
+/sys/devices/system/cpu/cpu* cpufreq/scaling_available_frequencies 0444 system system
+/sys/devices/system/cpu/cpu* cpufreq/cpuinfo_cur_freq 0444 system system
+# gk20a Nodes
+/sys/devices/platform/host1x gk20a.0/freq_request 0664 system system
+/sys/devices/platform/host1x gk20a.0/user 0664 system system
+/sys/devices/platform/host1x gk20a.0/devfreq/gk20a.0/cur_freq 0444 system system
+/sys/devices/platform/host1x gk20a.0/load 0444 system system
+/sys/devices/platform/host1x gk20a.0/counters_reset 0444 system system
+/sys/devices/platform/host1x gk20a.0/slcg_enable 0664 system system
+/sys/devices/platform/host1x gk20a.0/elcg_enable 0664 system system
+/sys/devices/platform/host1x gk20a.0/elpg_enable 0664 system system
+/sys/devices/platform/host1x gk20a.0/blcg_enable 0664 system system
+/sys/devices/platform/host1x tegradc.0/enable 0664 system system
+
+# Sensors
+/dev/iio:device*                                                                0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 cci_cali_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 cci_cali_init 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 cci_test_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_integration_time 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_max_range 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_power_consumed 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_raw 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_regulator_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.0/i2c-0/0-0010/iio:device0 in_illuminance_resolution 0660    system  system
+
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 cci_cali_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 cci_cali_init 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 cci_test_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_integration_time 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_max_range 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_power_consumed 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_raw 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_regulator_enable 0660    system  system
+/sys/devices/platform/tegra12-i2c.1/i2c-1/1-0044/iio:device1 in_illuminance_resolution 0660    system  system
+
+# pmqos
+/dev/constraint_cpu_freq 0660 system system
+/dev/constraint_gpu_freq 0660 system system
+/dev/constraint_online_cpus 0660 system system

@@ -1,0 +1,85 @@
+# Copyright (C) 2011-2013 NVIDIA Corporation.  All Rights Reserved.
+# Copyright (C) 2019 The LineageOS Project
+#
+# NVIDIA Corporation and its licensors retain all intellectual property and
+# proprietary rights in and to this software and related documentation.  Any
+# use, reproduction, disclosure or distribution of this software and related
+# documentation without an express license agreement from NVIDIA Corporation
+# is strictly prohibited.
+
+import init.t124.rc
+
+on fs
+    setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+    setprop ro.crypto.umount_sd false
+    setprop ro.crypto.fuse_sdcard true
+    mount_all /fstab.yellowstone
+
+on boot
+    # Reset TegraDC node to fix display initialization on reboot
+    write /sys/devices/platform/host1x/tegradc.0/enable 0
+    write /sys/devices/platform/host1x/tegradc.0/enable 1
+
+    # Max resolution supported for Miracast is 1080p, represented interms of macroblocks
+    setprop nvwfd.maxresolution_macroblocks 8160
+    # Enable Miracast game mode support
+    setprop nvwfd.gamemode 1
+    # Set panel rotation
+    setprop persist.tegra.panel.rotation 0
+
+    # NFC
+    setprop ro.nfc.port "I2C"
+
+on init
+    setprop phs.gpucompute.gpu_freq 30
+    # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
+    mkdir /mnt/tmp 0770 system system
+    mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
+
+    # Make symlink for the tegra watchdog device
+    symlink /dev/watchdog0 /dev/watchdog
+
+# GPS
+on post-fs-data
+    write /sys/class/gpio/export 61
+    write /sys/class/gpio/gpio61/direction out
+    write /sys/class/gpio/gpio61/value 0
+    chown root system /sys/class/gpio/gpio61/value
+    chmod 0664 /sys/class/gpio/gpio61/value
+    start start-gps
+
+    # NFC
+    chmod 0600 /dev/bcm2079x
+    chown nfc nfc /dev/bcm2079x
+    mkdir /data/nfc
+    mkdir /data/nfc/param
+    chmod 0700 /data/nfc
+    chmod 0700 /data/nfc/param
+    chown nfc nfc /data/nfc
+    chown nfc nfc /data/nfc/param
+    symlink /system/etc/libnfc-brcm.conf /data/nfc/libnfc-brcm.conf
+    symlink /system/etc/libnfc-brcm-20791b04.conf /data/nfc/libnfc-brcm-20791b04.conf
+
+    # Create directory for tango_service
+    mkdir /data/system 0775 system system
+    mkdir /data/system/lib 0775 system system
+
+    # Set /persist permissions
+    chown system system /persist
+    chmod 0771 /persist
+
+# Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
+service watchdogd /sbin/watchdogd 10 110
+    class core
+    user root
+
+# Sensor service
+service sensorhubd /system/bin/sensorhubd
+    class main
+    user root
+
+# Tagno service
+service tango_service /system/bin/tango_service
+    class main
+    user root
+    group root

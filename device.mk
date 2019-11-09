@@ -83,6 +83,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.tegra
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.yellowstone \
+    init.hdcp.rc \
+    init.icera.rc \
+    init.icera.common.rc \
+    init.icera.tablet.rc \
+    init.nv_dev_board.usb.rc \
+    init.t124.rc \
+    init.t124_emmc.rc \
+    init.tlk.rc \
+    init.yellowstone.rc \
+    ueventd.yellowstone.rc
+
 # RemovePackages
 PRODUCT_PACKAGES += \
     RemovePackages

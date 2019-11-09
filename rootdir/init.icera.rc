@@ -1,0 +1,34 @@
+# Copyright (C) 2012-2014 NVIDIA Corporation.  All Rights Reserved.
+# Copyright (C) 2019 The LineageOS Project
+#
+# NVIDIA Corporation and its licensors retain all intellectual property and
+# proprietary rights in and to this software and related documentation.  Any
+# use, reproduction, disclosure or distribution of this software and related
+# documentation without an express license agreement from NVIDIA Corporation
+# is strictly prohibited.
+
+import init.icera.tablet.rc
+
+on init
+    # Icera common properties
+    setprop gsm.modem.power.device /sys/class/gpio/gpio147/value,0,1
+    setprop gsm.modem.SARdet.device /sys/class/gpio/gpio50/value
+    setprop gsm.modem.edp.device /sys/power/sysedp
+    setprop ro.ril.devicename /dev/ttyACM0
+
+on boot
+    # Modem init
+    write /sys/class/gpio/gpio147/value 1
+    # BB Reset GPIO access for user radio
+    chown radio system /sys/class/gpio/gpio147/value
+    # SAR Detection GPIO access for user system
+    chown system system /sys/class/gpio/gpio50/value
+    # EDP access for user radio
+    chown radio system /sys/power/sysedp/consumer_register
+    chown radio system /sys/power/sysedp/consumer_unregister
+
+on post-fs-data
+    # BB mapping symbolic name to the logging ttyACM port
+    symlink /dev/ttyACM3 /dev/log_modem
+    # BB mapping symbolic name to the at ttyACM port
+    symlink /dev/ttyACM2 /dev/at_modem

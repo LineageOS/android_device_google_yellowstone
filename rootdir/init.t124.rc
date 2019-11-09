@@ -1,0 +1,287 @@
+# Copyright (C) 2011-2013 NVIDIA Corporation.  All Rights Reserved.
+# Copyright (C) 2019 The LineageOS Project
+#
+# NVIDIA Corporation and its licensors retain all intellectual property and
+# proprietary rights in and to this software and related documentation.  Any
+# use, reproduction, disclosure or distribution of this software and related
+# documentation without an express license agreement from NVIDIA Corporation
+# is strictly prohibited.
+
+import init.nv_dev_board.usb.rc
+import init.${ro.boot.modem}.rc
+
+on early-init
+    mount debugfs debugfs /sys/kernel/debug mode=0755
+
+on init
+    # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
+    mkdir /mnt/tmp 0770 system system
+    mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
+
+    # Set GPS GPIO property, which is used in gps_select
+    setprop ro.gps.gpio 61
+
+    # Watchdog
+    start watchdogd
+
+on post-fs-data
+    # Mount factory partition
+    mount ext4 /dev/block/platform/sdhci-tegra.3/by-name/FCT /mnt/factory ro
+
+    # Create HDCP SRM folder and set its permissions
+    setprop hdcp.srm.path       "/etc/hdcpsrm"
+    setprop hdcp1x.srm.name     "hdcp1x.srm"
+    setprop hdcp2x.srm.name     "hdcp2x.srm"
+    setprop hdcp2xtest.srm.name "hdcp2xtest.srm"
+
+    chmod 0644 /persist/wifi_mac.txt
+    chown root root /persist/wifi_mac.txt
+    insmod /system/lib/modules/bcmdhd.ko
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/nvcam 0700 media camera
+    chown dhcp dhcp /data/misc/dhcp
+
+    mkdir /data/media 0770 media_rw media_rw
+
+    # Set indication (checked by vold) that we have finished this action
+    setprop vold.post_fs_data_done 1
+
+    # Create directory for runtime calibration data
+    # Remount to rw and set perm to 770 till new diag product is created
+    mkdir /persist/touchscreen 0777 system system
+    export TOUCH_CONF_DIR /persist/touchscreen
+    export TOUCH_DATA_DIR /persist/touchscreen
+    chown system system /persist/touchscreen/raydium_ts_conf.bin
+    chmod 666 /persist/touchscreen/raydium_ts_conf.bin
+
+    # Create directory for camera calibration data
+    mkdir /mnt/factory/camera 0666 system system
+
+    # Create directory for camera log
+    mkdir /persist/camera 0777 system system
+
+    # CPU volt cap
+    mkdir /data/misc/cvc 0774 system system
+
+    # Create gps files
+    mkdir /data/system/gps
+    chown gps system /data/system/gps/
+    chmod 0770 /data/system/gps/
+
+on boot
+    ## Bluetooth
+    # Change back to net_bt_stack from system
+    chown bluetooth net_bt_stack /data/misc/bluetooth
+
+    # UART device
+    chmod 0660 /dev/ttyHS2
+    chown bluetooth net_bt_stack /dev/ttyHS2
+    chmod 0660 /dev/ttyTHS2
+    chown bluetooth net_bt_stack /dev/ttyTHS2
+
+    # Power up/down interface
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chmod 0660 /sys/class/rfkill/rfkill0/type
+    write /sys/class/rfkill/rfkill0/state 0
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+
+    # Bluetooth MAC address programming
+    chown bluetooth net_bt_stack ro.bt.bdaddr_path
+    chown bluetooth net_bt_stack /system/etc/bluetooth
+
+    # Backlight
+    chown system system /sys/class/backlight/pwm-backlight/brightness
+
+    # didim
+    chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
+    chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
+    chown system system /sys/class/graphics/fb0/device/smartdimmer/sd_window
+    chown system system /sys/class/graphics/fb0/device/smartdimmer/sd_window_enable
+
+    # CMU
+    chown system system /sys/class/graphics/fb0/device/cmu_enable
+    chown system system /sys/class/graphics/fb1/device/cmu_enable
+
+    # Power
+    chown system system /sys/kernel/tegra_cap/core_cap_level
+    chown system system /sys/kernel/tegra_cap/core_cap_state
+    chown system system /sys/kernel/tegra_volt_cap/cpu_volt
+    chmod 0664 /sys/kernel/tegra_volt_cap/cpu_volt
+    chown system system /sys/module/cpu_tegra/parameters/cpu_user_cap
+    chown system system /sys/devices/platform/host1x/gk20a.0/enable_3d_scaling
+
+    # Performance tuning
+    write /sys/module/nvhost_gk20a/parameters/medium_priority 128
+    write /sys/module/nvhost_gk20a/parameters/high_priority 1024
+
+    # Audio
+    chmod 0664 /sys/power/suspend/mode
+    chown system audio /sys/power/suspend/mode
+
+    # Tegra wakeup monitor
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/cmd
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/monitor_enable
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/nf_enable
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/am_enable
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/init_ports
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/add_ports
+    chown system system /sys/devices/platform/tegra_wakeup_monitor/del_ports
+
+    # Sensors
+    chown system system /sys/class/sensors/light/device/amb_clear
+
+    # Touch
+    chown system system /sys/class/input/input0/enabled
+
+    # Power management settings
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp 0
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost_factor
+
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/down_delay 500
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/idle_top_freq 204000
+    write /sys/devices/system/cpu/cpuquiet/current_governor runnable
+
+    # Enable power gating of fast CPU's
+    write /sys/module/cpuidle_t11x/parameters/cpu_power_gating_in_idle 31
+    write /sys/module/cpuidle_t11x/parameters/slow_cluster_power_gating_noncpu 1
+    write /sys/module/cpuidle/parameters/power_down_in_idle 1
+
+    write /sys/module/cpuidle_t11x/parameters/stop_mc_clk_in_idle 1
+    write /sys/devices/system/cpu/cpuquiet/current_governor runnable
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable 1
+
+    write /sys/module/tegra12_emc/parameters/pasr_enable 1
+
+    # TBD: Remove the below line that give permissions for scaling_governor
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/tegradc.0/enable
+    chown system system /sys/devices/tegradc.1/enable
+    chown system system /sys/devices/platform/host1x/nvavp/boost_sclk
+    chown system system /sys/class/input/input1/enabled
+    chown system system /sys/class/input/input2/enabled
+
+    # Thermal log
+    chown system system /sys/class/thermal/record_thermal
+    chown system system /sys/class/thermal/record_thermal_polling
+    chmod 0664 /sys/class/thermal/record_thermal
+    chmod 0664 /sys/class/thermal/record_thermal_polling
+
+    # nvdps
+    chown system system /sys/class/graphics/fb0/device/nvdps
+
+    # Default Read Ahead value for sdcards
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk1/queue/read_ahead_kb 2048
+
+    # ozwpan driver: WiFi direct USB shim driver
+    chown system system /dev/ozwpan
+    chown system system /sys/class/ozmo_wpan/ozwpan/devices
+    chown system system /sys/class/ozmo_wpan/ozwpan/select
+    chown system system /sys/class/ozmo_wpan/ozwpan/bind
+    chmod 0660 /sys/class/ozmo_wpan/ozwpan/bind
+
+    # Wifi support rx-filter
+    setprop wifi.rx-filter 1
+
+# TLK storage service
+import init.tlk.rc
+
+on property:ro.debuggable=1
+    # EMC debug interface
+    chmod 666 /sys/kernel/debug/tegra_emc/eack_state
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdrive /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdrive /storage/usbdrive
+    class late_start
+    disabled
+
+service fuse_usbdrive1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdrive1 /storage/usbdrive1
+    class late_start
+    disabled
+
+# Bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
+service bugreport /system/bin/dumpstate -d -p -B -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 115 114
+
+on property:pes_mount_ok=1
+    start op_property
+    start set_sensor_perm
+    start check_bk_cookie
+    start check_dp_cal
+    start trf_sn
+
+# Mount usb drives as /usbdrive. Generally usb drives are formatted with FAT
+# filesystem, so we support FAT as of now.
+on device-added-/sys/block/sda
+  mount vfat /dev/block/sda /mnt/media_rw/usbdrive
+
+on device-removed-/sys/block/sda
+  umount /mnt/media_rw/usbdrive
+
+# Touchscreen (Raydium)
+service rm_ts_service /system/bin/rm_ts_server
+    disabled
+    class late_start
+    user system
+    group system input
+
+on property:ro.boot.touch_vendor_id=0
+    start rm_ts_service
+
+# GPS service
+service start-gps /system/bin/gps_select.sh
+    class main
+    user root
+    group root
+    class late_start
+    oneshot
+    disabled
+
+# Start GPS daemon
+service gps-daemon /vendor/bin/glgps_nvidiaTegra2android -c /vendor/etc/gps/gpsconfig.xml
+    user gps
+    socket gps seqpacket 0660 gps system
+    group system inet sdcard_rw sdcard_r wakelock
+    class late_start
+    seclabel u:r:gpsd:s0
+    disabled
+
+# USSR
+service ussr_setup /system/bin/ussr_setup.sh
+    class main
+    user root
+    group root
+    oneshot
+
+# USSRD
+service ussrd /vendor/bin/ussrd
+    user system
+    group system
+    class main
+
+# Tethering: disable tethering as no RIL supported
+on property:ro.boot.modem=none
+    setprop ro.tether.denied "true"
+
+on property:dev.bootcomplete=1
+    start mactool
+
+on fs
+   # Mount console ramooops
+   mount pstore pstore /sys/fs/pstore

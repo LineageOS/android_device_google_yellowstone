@@ -1,0 +1,5 @@
+# Allow device specific system calls
+geteuid32: 1
+sysinfo: 1
+uname: 1
+mkdirat: 1

@@ -15,9 +15,6 @@
 
 DEVICE_PATH := device/google/yellowstone
 
-# Local header includes
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -85,6 +82,9 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+# Zygote Whitelist
+ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",
 
 # Inherit from the proprietary board configuration
 include vendor/google/yellowstone/BoardConfigVendor.mk

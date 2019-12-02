@@ -68,6 +68,9 @@ PRODUCT_COPY_FILES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
+# Dexpreopt
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \

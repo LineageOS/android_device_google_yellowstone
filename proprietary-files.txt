@@ -1,7 +1,7 @@
 # Audio
-vendor/lib/hw/audio.primary.tegra.so
-vendor/lib/libnvaudiofx.so
-vendor/lib/libnvoice.so
+vendor/lib/hw/audio.primary.tegra.so|7c78297f2fbb5d60db9bfc6d330c1dd29963b9c1
+vendor/lib/libnvaudiofx.so|a4d91b23cc444ac90d5c2c83901298f7cc624015
+vendor/lib/libnvoice.so|f13988bf7b54553f45e2a42125fdf0b002caed6f
 
 # Camera
 vendor/lib/libopencv24_tegra.so

@@ -72,6 +72,10 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayouts/raydium_ts.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/raydium_ts.idc
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.tegra
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \

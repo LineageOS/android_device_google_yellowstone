@@ -23,7 +23,7 @@ vendor/lib/hw/hwcomposer.tegra.so
 vendor/lib/hw/memtrack.tegra.so
 vendor/lib/hw/vulkan.tegra.so
 vendor/lib/libcuda.so
-vendor/lib/libglcore.so
+vendor/lib/libglcore.so|0fba593ef515d0ab8cc24ab0fd5027de1dab5119
 vendor/lib/libnvavp.so
 vendor/lib/libnvblit.so
 vendor/lib/libnvcpl.so
@@ -42,6 +42,7 @@ vendor/lib/libnvtnr.so
 vendor/lib/libnvtvmr.so
 vendor/lib/libnvvicsi_v3.so
 vendor/lib/libnvwsi.so
+vendor/lib/libw.so|4525f039e83bfb1adabea2f20cab5898893c32f1
 
 # Graphics firmware
 etc/firmware/tegra12x/nvhost_tsec.fw

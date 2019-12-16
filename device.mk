@@ -202,7 +202,10 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_wvm
+    libs \
+    libcutils_shim \
+    libshim_wvm \
+    libshim_zw
 
 # System Properties
 -include $(LOCAL_PATH)/system_prop.mk

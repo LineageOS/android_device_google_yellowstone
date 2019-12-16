@@ -68,9 +68,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps/gps.conf \
     $(LOCAL_PATH)/gps/gpsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gps/gpsconfig.xml
 
-# HWUI
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayouts/raydium_ts.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/raydium_ts.idc

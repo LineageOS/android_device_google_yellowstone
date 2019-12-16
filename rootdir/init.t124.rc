@@ -72,24 +72,24 @@ on post-fs-data
 on boot
     ## Bluetooth
     # Change back to net_bt_stack from system
-    chown bluetooth net_bt_stack /data/misc/bluetooth
+    chown bluetooth bluetooth /data/misc/bluetooth
 
     # UART device
     chmod 0660 /dev/ttyHS2
-    chown bluetooth net_bt_stack /dev/ttyHS2
+    chown bluetooth bluetooth /dev/ttyHS2
     chmod 0660 /dev/ttyTHS2
-    chown bluetooth net_bt_stack /dev/ttyTHS2
+    chown bluetooth bluetooth /dev/ttyTHS2
 
     # Power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/type
     write /sys/class/rfkill/rfkill0/state 0
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
 
     # Bluetooth MAC address programming
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown bluetooth net_bt_stack /system/etc/bluetooth
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown bluetooth bluetooth /system/etc/bluetooth
 
     # Backlight
     chown system system /sys/class/backlight/pwm-backlight/brightness

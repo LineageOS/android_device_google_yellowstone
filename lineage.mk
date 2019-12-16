@@ -20,10 +20,10 @@ $(call inherit-product, device/google/yellowstone/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit common Lineage configuration for tablets
-$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
+$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
 # Inherit common Lineage configuration for telephony devices
-$(call inherit-product, vendor/cm/config/telephony.mk)
+$(call inherit-product, vendor/lineage/config/telephony.mk)
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 1920

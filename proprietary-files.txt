@@ -10,9 +10,9 @@ vendor/lib/libnvcamlog.so
 vendor/lib/libtbb.so
 
 # GPS (Broadcom/MTK)
-bin/gps_select.sh
-vendor/lib/hw/gps.brcm.so
-vendor/bin/glgps_nvidiaTegra2android
+vendor/lib/hw/gps.brcm.so|e07962c14276c4e699938cbece532d4bce2d55d7
+vendor/bin/glgps_nvidiaTegra2android|15c853be84202969f2fb172ba5c8cf230c659615
+vendor/bin/gps_select.sh|b5563e2b35ee2a89d20bd1ef325d877721ba82dd
 
 # Graphics
 vendor/lib/egl/libEGL_tegra.so

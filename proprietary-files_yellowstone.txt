@@ -34,7 +34,7 @@ vendor/firmware/icera/nvidia-e1729-nala/productConfig.bin
 # Sensor
 bin/sensorhubd
 bin/sh_updater
-lib/hw/sensors.tegra.so
+lib/sensors.tegra.so
 lib/libmplmpu.so
 lib/libsensors.base.so
 lib/libsensors.iio.lights.so

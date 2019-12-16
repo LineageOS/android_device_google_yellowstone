@@ -48,6 +48,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.tegra.nvmmlite=1
 
+# OMX
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false
+
 # Senors
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sensorhubd.update=1

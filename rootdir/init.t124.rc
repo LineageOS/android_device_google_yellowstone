@@ -9,6 +9,7 @@
 
 import init.nv_dev_board.usb.rc
 import init.${ro.boot.modem}.rc
+import init.comms.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
@@ -243,24 +244,6 @@ service rm_ts_service /system/bin/rm_ts_server
 
 on property:ro.boot.touch_vendor_id=0
     start rm_ts_service
-
-# GPS service
-service start-gps /system/bin/gps_select.sh
-    class main
-    user root
-    group root
-    class late_start
-    oneshot
-    disabled
-
-# Start GPS daemon
-service gps-daemon /vendor/bin/glgps_nvidiaTegra2android -c /vendor/etc/gps/gpsconfig.xml
-    user gps
-    socket gps seqpacket 0660 gps system
-    group system inet sdcard_rw sdcard_r wakelock
-    class late_start
-    seclabel u:r:gpsd:s0
-    disabled
 
 # USSR
 service ussr_setup /system/bin/ussr_setup.sh

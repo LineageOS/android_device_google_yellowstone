@@ -8,6 +8,7 @@
 # is strictly prohibited.
 
 import init.t124.rc
+import init.ussrd.rc 
 
 on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
@@ -39,14 +40,12 @@ on init
     # Make symlink for the tegra watchdog device
     symlink /dev/watchdog0 /dev/watchdog
 
-# GPS
 on post-fs-data
     write /sys/class/gpio/export 61
     write /sys/class/gpio/gpio61/direction out
     write /sys/class/gpio/gpio61/value 0
     chown root system /sys/class/gpio/gpio61/value
     chmod 0664 /sys/class/gpio/gpio61/value
-    start start-gps
 
     # NFC
     chmod 0600 /dev/bcm2079x

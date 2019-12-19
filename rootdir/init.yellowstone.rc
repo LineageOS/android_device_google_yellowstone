@@ -28,6 +28,7 @@ on boot
     setprop ro.nfc.port "I2C"
 
 on init
+    export LD_SHIM_LIBS "/system/vendor/lib/libwvm.so|libshim_wvm.so"    
     setprop phs.gpucompute.gpu_freq 30
     # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
     mkdir /mnt/tmp 0770 system system

@@ -162,6 +162,10 @@ PRODUCT_PACKAGES += \
     CarrierConfig \
     Libxml2
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_wvm
+
 # System Properties
 -include $(LOCAL_PATH)/system_prop.mk
 

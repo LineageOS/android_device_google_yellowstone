@@ -13,3 +13,16 @@ service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
     user root
     group keystore
     oneshot
+
+# ss_status
+#
+# One shot command that queries status of secure storage.
+#
+service ss_status /vendor/bin/run_ss_status.sh
+    class main
+    group keystore
+    oneshot
+
+on post-fs-data
+    mkdir /data/tlk 0700 system keystore
+    mkdir /data/ss 0700 system keystore

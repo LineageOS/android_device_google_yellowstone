@@ -7,11 +7,9 @@
 # documentation without an express license agreement from NVIDIA Corporation
 # is strictly prohibited.
 
-on boot
-
 # TLK storage service
 service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
     class main
     user root
-    group root keystore
+    group keystore
     oneshot

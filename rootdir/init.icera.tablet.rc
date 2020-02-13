@@ -10,7 +10,7 @@
 import init.icera.common.rc
 
 on early-init
-# agpsd socket property
+    # agpsd socket property
     setprop agpsd.socket_path "/dev/socket/at_pal"
 
 on init
@@ -37,13 +37,6 @@ service icera-loader /vendor/bin/icera-loader /dev/ttyACM0
     disabled
     oneshot
 
-# Start AGPS daemon
-service agps-daemon /vendor/bin/agpsd
-    class main
-    user radio
-    socket at_pal seqpacket 0666 radio system
-    group system
-
 on property:gsm.modem.update=1
     start icera-loader
 
@@ -51,7 +44,6 @@ on property:ril.testmode=2
     setprop ril.mock_modem.socketname "/dev/mock_modem"
     start mock_modem
     stop ril-daemon
-    stop agps-daemon
     start ril-daemon-test
 
 on property:ril.testmode=1

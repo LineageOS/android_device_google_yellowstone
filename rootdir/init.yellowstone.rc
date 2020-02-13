@@ -17,10 +17,6 @@ on fs
     mount_all /fstab.yellowstone
 
 on boot
-    # Reset TegraDC node to fix display initialization on reboot
-    write /sys/devices/platform/host1x/tegradc.0/enable 0
-    write /sys/devices/platform/host1x/tegradc.0/enable 1
-
     # Max resolution supported for Miracast is 1080p, represented interms of macroblocks
     setprop nvwfd.maxresolution_macroblocks 8160
     # Enable Miracast game mode support

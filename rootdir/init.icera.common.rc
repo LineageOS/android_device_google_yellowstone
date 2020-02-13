@@ -73,21 +73,12 @@ service ril-daemon-test /system/bin/rild
     group radio cache inet misc audio sdcard_rw sdcard_r
     disabled
 
-on property:gsm.modem.icera.testmode.rndis=0
-    start tm-rndis-stop
-
-on property:gsm.modem.icera.testmode.rndis=1
-    start tm-rndis-start
-
 on property:gsm.modem.ril.enabled=0
     stop ril-daemon
-    stop agps-daemon
 
 on property:gsm.modem.ril.enabled=1
     stop ril-daemon
     start ril-daemon
-    stop agps-daemon
-    start agps-daemon
 
 on property:gsm.modem.riltest.enabled=0
     stop ril-daemon-test

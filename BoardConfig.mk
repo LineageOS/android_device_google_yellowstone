@@ -84,7 +84,7 @@ WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 # Zygote Whitelist
-ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",
+ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
 
 # Inherit from the proprietary board configuration
 include vendor/google/yellowstone/BoardConfigVendor.mk

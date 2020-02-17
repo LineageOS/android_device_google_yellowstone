@@ -209,7 +209,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libs \
     libcutils_shim \
-    libshim_wvm \
     libshim_zw
 
 # System Properties

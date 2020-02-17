@@ -9,7 +9,7 @@ lib/libpowerservice_client.so
 vendor/lib/libardrv_dynamic.so
 vendor/lib/libnvcam_imageencoder.so
 vendor/lib/libnvcamerahdr.so
-vendor/lib/libnvcamerahdr_v3.so
+vendor/lib/libnvcamerahdr_v3.so|50fcc2753435f2ac3be40d36493309a70777d10f
 vendor/lib/libnvcameratools.so
 vendor/lib/libnvcontrol_jni.so
 vendor/lib/libnvisp_v3.so
@@ -35,7 +35,7 @@ vendor/firmware/icera/nvidia-e1729-nala/productConfig.bin
 bin/sensorhubd
 bin/sh_updater
 lib/sensors.tegra.so
-lib/libmplmpu.so
+lib/libmplmpu.so|bec3d1934cbd2b366c49894e09dec93f6118a2cb
 lib/libsensors.base.so
 lib/libsensors.iio.lights.so
 vendor/indelible/sensor_hub_tgt.bin

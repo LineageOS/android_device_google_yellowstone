@@ -4,10 +4,10 @@ vendor/lib/libnvaudiofx.so|a4d91b23cc444ac90d5c2c83901298f7cc624015
 vendor/lib/libnvoice.so|f13988bf7b54553f45e2a42125fdf0b002caed6f
 
 # Camera
-vendor/lib/libopencv24_tegra.so
-vendor/lib/libnvcamerautils.so
+vendor/lib/libopencv24_tegra.so|b3cf0dcecb5dcbb09b831b58892a825fe2c80bd4
+vendor/lib/libnvcamerautils.so|d0db12dfc858297decc57afdbdd975a80ff7c36d
 vendor/lib/libnvcamlog.so
-vendor/lib/libtbb.so
+vendor/lib/libtbb.so|82c5963d11f4a939139b86fcd21f799eb7202ab2
 
 # GPS (Broadcom/MTK)
 vendor/lib/hw/gps.brcm.so|e07962c14276c4e699938cbece532d4bce2d55d7
@@ -15,14 +15,14 @@ vendor/bin/glgps_nvidiaTegra2android|15c853be84202969f2fb172ba5c8cf230c659615
 vendor/bin/gps_select.sh|b5563e2b35ee2a89d20bd1ef325d877721ba82dd
 
 # Graphics
-vendor/lib/egl/libEGL_tegra.so
+vendor/lib/egl/libEGL_tegra.so|0c0650479f98562e79c5f6bbd5e296e6cd0675f5
 vendor/lib/egl/libGLESv1_CM_tegra.so
 vendor/lib/egl/libGLESv2_tegra.so
 vendor/lib/hw/gralloc.tegra.so
-vendor/lib/hw/hwcomposer.tegra.so
+vendor/lib/hw/hwcomposer.tegra.so|9dfc6887dafea42c8d6ea0d5b44046bd9008d227
 vendor/lib/hw/memtrack.tegra.so
 vendor/lib/hw/vulkan.tegra.so
-vendor/lib/libcuda.so
+vendor/lib/libcuda.so|d3a81ed218322186ba5955508f86b48b2cc3a3df
 vendor/lib/libglcore.so|0fba593ef515d0ab8cc24ab0fd5027de1dab5119
 vendor/lib/libnvavp.so
 vendor/lib/libnvblit.so
@@ -72,7 +72,7 @@ vendor/lib/hw/keystore.tegra.so
 # Media
 vendor/lib/libnvmm.so
 vendor/lib/libnvmm_audio.so
-vendor/lib/libnvmm_camera_v3.so
+vendor/lib/libnvmm_camera_v3.so|121a75953898fdde089966f1780a45d467736576
 vendor/lib/libnvmm_contentpipe.so
 vendor/lib/libnvmm_msaudio.so
 vendor/lib/libnvmm_parser.so
@@ -82,7 +82,7 @@ vendor/lib/libnvmmlite.so
 vendor/lib/libnvmmlite_audio.so
 vendor/lib/libnvmmlite_image.so
 vendor/lib/libnvmmlite_utils.so
-vendor/lib/libnvmmlite_video.so
+vendor/lib/libnvmmlite_video.so|1891b9fa7e3c7ff2fa39274919957725a8919da7
 vendor/lib/libnvodm_imager.so
 vendor/lib/libnvomx.so
 vendor/lib/libnvomxadaptor.so

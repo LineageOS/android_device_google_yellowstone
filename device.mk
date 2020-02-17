@@ -31,15 +31,17 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libtinyalsa \
     libtinycompress \
+    libxml2 \
     tinycap \
     tinymix \
     tinyplay \
     xaplay
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/audio/enctune.conf:system/etc/enctune.conf \
-    $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml
+    $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/nvaudio_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nvaudio_conf.xml \
+    $(LOCAL_PATH)/audio/enctune.conf:system/etc/enctune.conf
 
 # Bluetooth
 PRODUCT_PACKAGES += \

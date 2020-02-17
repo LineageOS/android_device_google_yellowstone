@@ -1,7 +1,9 @@
 # Audio
-vendor/lib/hw/audio.primary.tegra.so|7c78297f2fbb5d60db9bfc6d330c1dd29963b9c1
-vendor/lib/libnvaudiofx.so|a4d91b23cc444ac90d5c2c83901298f7cc624015
-vendor/lib/libnvoice.so|f13988bf7b54553f45e2a42125fdf0b002caed6f
+vendor/lib/hw/audio.primary.tegra.so|626e35306b001bbb2a67a44abe63a2d1a30a6f2c
+vendor/lib/libim501.so|65c228a4344d62e5184f03ad015d52af7ecab5d3
+vendor/lib/libnvaudiofx.so|e451486f04e222ec6befaa48f818851df25b08de
+vendor/lib/libnvvisualizer.so|e29fab130db68939087535cb00a5a22deb053068
+vendor/lib/libnvoice.so|d5bd167a6c58611ae3e03eb6464eaea3510fb0e4
 
 # Camera
 vendor/lib/libopencv24_tegra.so|b3cf0dcecb5dcbb09b831b58892a825fe2c80bd4

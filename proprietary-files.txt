@@ -105,8 +105,17 @@ vendor/bin/modemnic
 vendor/lib/libril-icera.so
 
 # Trusted Little Kernel
+vendor/bin/hdcp_test
 vendor/bin/tlk_daemon
-vendor/lib/libtlk_secure_hdcp_up.so
+vendor/bin/tsechdcp_test 
+vendor/lib/libnvcap.so
+vendor/lib/libnvcapclk.so
+vendor/lib/libnvhdcp.so
+vendor/lib/libnvhrcv.so
+vendor/lib/libnvtestresults.so
+vendor/lib/libnvtsecmpeg2ts.so 
+vendor/lib/libstagefright_hdcp.so
+vendor/lib/libtlk_secure_hdcp_up.so 
 vendor/lib/libtsechdcp.so
 vendor/lib/libtsec_wrapper.so
 

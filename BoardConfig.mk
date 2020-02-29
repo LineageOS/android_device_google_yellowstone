@@ -50,6 +50,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+WITH_DEXPREOPT_DEBUG_INFO := false
 
 # Graphics
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U

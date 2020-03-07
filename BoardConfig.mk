@@ -57,6 +57,9 @@ TARGET_KERNEL_SOURCE := kernel/google/yellowstone
 TARGET_KERNEL_CONFIG := yellowstone_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 
+# Lineage Hardware
+BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/lineagehw
+
 # Manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 

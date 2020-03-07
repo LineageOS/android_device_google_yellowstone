@@ -47,6 +47,9 @@ TARGET_KERNEL_SOURCE := kernel/google/yellowstone
 TARGET_KERNEL_CONFIG := yellowstone_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 
+# Manifest
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216

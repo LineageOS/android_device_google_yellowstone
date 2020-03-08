@@ -7,14 +7,14 @@
 # documentation without an express license agreement from NVIDIA Corporation
 # is strictly prohibited.
 
-import init.t124.rc
-import init.ussrd.rc 
+import /vendor/etc/init/hw/init.t124.rc
+import /vendor/etc/init/hw/init.ussrd.rc 
 
 on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
     setprop ro.crypto.umount_sd false
     setprop ro.crypto.fuse_sdcard true
-    mount_all /fstab.yellowstone --early
+    mount_all /vendor/etc/fstab.yellowstone --early
 
     # Start HW service manager early
     start hwservicemanager
@@ -50,7 +50,7 @@ on late-fs
     start gralloc-2-0
 
     # Mount RW partitions which need run fsck
-    mount_all /fstab.yellowstone --late
+    mount_all /vendor/etc/fstab.yellowstone --late
 
 on post-fs-data
     write /sys/class/gpio/export 61

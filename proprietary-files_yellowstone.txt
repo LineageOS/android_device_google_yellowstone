@@ -2,7 +2,7 @@
 vendor/firmware/bcm43341.hcd
 
 # Camera
-lib/hw/camera.tegra.so
+#lib/hw/camera.tegra.so
 lib/libcxsparse.so
 lib/libjpegnv.so
 lib/libpowerservice_client.so
@@ -41,9 +41,9 @@ lib/libsensors.iio.lights.so
 vendor/indelible/sensor_hub_tgt.bin
 
 # Tango
--app/TangoCore.apk:app/TangoCore/TangoCore.apk
--app/TangoDiscovery.apk:app/TangoDiscovery/TangoDiscovery.apk
-bin/tango_service
+#-app/TangoCore.apk:app/TangoCore/TangoCore.apk
+#-app/TangoDiscovery.apk:app/TangoDiscovery/TangoDiscovery.apk
+#bin/tango_service
 framework/libtango_device.jar
 framework/libtango_device2.jar
 lib/libtango_client_api.so

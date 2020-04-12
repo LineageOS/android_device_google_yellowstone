@@ -67,7 +67,7 @@ etc/hdcpsrm/hdcp2x.srm
 etc/hdcpsrm/hdcp2xtest.srm
 
 # Keystore
-vendor/lib/hw/keystore.tegra.so
+#vendor/lib/hw/keystore.tegra.so
 
 # Media
 vendor/lib/libnvmm.so

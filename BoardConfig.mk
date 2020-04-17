@@ -86,7 +86,7 @@ TARGET_POWERHAL_VARIANT := tegra
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.yellowstone
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
+#TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 
 # Shims
 TARGET_LD_SHIM_LIBS := /system/lib/libcutils.so|/system/lib/libcutils_shim.so:/system/vendor/bin/glgps_nvidiaTegra2android|libsensor.so

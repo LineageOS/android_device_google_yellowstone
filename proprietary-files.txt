@@ -44,7 +44,7 @@ vendor/lib/libnvtnr.so
 vendor/lib/libnvtvmr.so
 vendor/lib/libnvvicsi_v3.so
 vendor/lib/libnvwsi.so
-vendor/lib/libw.so|7e0e63f96c0509f7498ec81ae92fcc6e196723eb
+vendor/lib/libw.so|15c457399d016fba0b3c3b05f5de895479bb5971
 
 # Graphics firmware
 etc/firmware/tegra12x/nvhost_tsec.fw

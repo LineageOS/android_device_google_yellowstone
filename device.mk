@@ -13,6 +13,20 @@
 # limitations under the License.
 
 # Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler \
+    libaudiospdif \
+    libstagefrighthw \
+    libtinyalsa \
+    libtinycompress \
+    tinycap \
+    tinymix \
+    tinyplay \
+    xaplay
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/enctune.conf:system/etc/enctune.conf \
@@ -23,6 +37,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml \
     $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf
@@ -52,18 +69,42 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayouts/raydium_ts.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/raydium_ts.idc
 
 # NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    nfc_nci.bcm2079x.default \
+    NfcNci \
+    Tag
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+
+# Power
+PRODUCT_PACKAGES += \
+    power.tegra
 
 # RemovePackages
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# RIL
+PRODUCT_PACKAGES += \
+    CarrierConfig \
+    Libxml2
+
 # System Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
+# Thermal
+PRODUCT_PACKAGES += \
+    thermal.tegra
+
 # Wi-Fi
+PRODUCT_PACKAGES += \
+    hostapd \
+    wifilogd \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-

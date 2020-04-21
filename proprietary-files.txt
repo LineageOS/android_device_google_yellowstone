@@ -23,7 +23,7 @@ vendor/lib/egl/libGLESv2_tegra.so
 vendor/lib/hw/gralloc.tegra.so
 vendor/lib/hw/hwcomposer.tegra.so|9dfc6887dafea42c8d6ea0d5b44046bd9008d227
 vendor/lib/hw/memtrack.tegra.so
-vendor/lib/hw/vulkan.tegra.so
+vendor/lib/hw/vulkan.tegra.so|e80ff3d6d428a440127bef1e51c9c9e55dfe6c5e
 vendor/lib/libcuda.so|d3a81ed218322186ba5955508f86b48b2cc3a3df
 vendor/lib/libglcore.so|0fba593ef515d0ab8cc24ab0fd5027de1dab5119
 vendor/lib/libnvavp.so

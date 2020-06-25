@@ -25,6 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.latch_unsignaled=1 \
     ro.sf.override_null_lcd_density=1 \
     ro.sf.lcd_density=320
 

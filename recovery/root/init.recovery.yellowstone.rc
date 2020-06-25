@@ -15,6 +15,10 @@
 import init.recovery.ray_touch.rc
 import init.recovery.nv_dev_board.usb.rc
 
+on fs
+    wait /dev/block/platform/sdhci-tegra.3
+    symlink /dev/block/platform/sdhci-tegra.3 /dev/block/bootdevice
+
 # Thie yields each tegra wdt expiration to be at 30 secs and fourth expiration for reboot at 120 secs.
 service watchdogd /sbin/watchdogd 10 110
     class default

@@ -38,7 +38,7 @@ on fs
 
     # Increase rmem_max for 4k GS
     write /proc/sys/net/core/rmem_max 1048576
-c
+
 on post-fs-data
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi

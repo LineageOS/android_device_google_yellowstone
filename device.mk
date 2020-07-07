@@ -21,7 +21,7 @@ PRODUCT_AAPT_CONFIG := normal
 
 # APEX
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
+    $(LOCAL_PATH)/configs/ld.config.txt:${TARGET_COPY_OUT_SYSTEM}/etc/swcodec/ld.config.txt
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/nvaudio_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nvaudio_conf.xml \
-    $(LOCAL_PATH)/audio/enctune.conf:system/etc/enctune.conf
+    $(LOCAL_PATH)/audio/enctune.conf:${TARGET_COPY_OUT_SYSTEM}/etc/enctune.conf
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -54,8 +54,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml \
-    $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf
+    $(LOCAL_PATH)/camera/model_frontal.xml:${TARGET_COPY_OUT_SYSTEM}/etc/model_frontal.xml \
+    $(LOCAL_PATH)/camera/nvcamera.conf:${TARGET_COPY_OUT_SYSTEM}/etc/nvcamera.conf
 
 # Codecs
 PRODUCT_COPY_FILES += \
@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps/gps.conf \
+    $(LOCAL_PATH)/gps/gps.conf:${TARGET_COPY_OUT_SYSTEM}/etc/gps/gps.conf \
     $(LOCAL_PATH)/gps/gpsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gps/gpsconfig.xml
 
 # Graphics
@@ -115,8 +115,8 @@ PRODUCT_PACKAGES += \
     Tag
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+    $(LOCAL_PATH)/nfc/libnfc-nci.conf:${TARGET_COPY_OUT_SYSTEM}/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/nfc/nfcee_access.xml:${TARGET_COPY_OUT_SYSTEM}/etc/nfcee_access.xml
 
 # Media config
 PRODUCT_COPY_FILES += \
@@ -131,7 +131,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.feature.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.opengl4.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.feature.opengl4.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.miracast.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.miracast.xml \
-    $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
+    $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:${TARGET_COPY_OUT_SYSTEM}/etc/permissions/com.nvidia.nvsi.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \

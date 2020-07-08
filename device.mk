@@ -177,10 +177,6 @@ PRODUCT_PACKAGES += \
     init.yellowstone.rc \
     ueventd.yellowstone.rc
 
-# RemovePackages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl

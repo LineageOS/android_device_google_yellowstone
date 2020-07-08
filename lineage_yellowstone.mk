@@ -20,7 +20,7 @@ $(call inherit-product, device/google/yellowstone/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 
 # Inherit AOSP base configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit common Lineage configuration for tablets
 $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)

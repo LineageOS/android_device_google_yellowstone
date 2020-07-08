@@ -165,7 +165,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.yellowstone \
-    init.comms.rc \
+    init.communications.rc \
     init.hdcp.rc \
     init.icera.rc \
     init.icera.common.rc \

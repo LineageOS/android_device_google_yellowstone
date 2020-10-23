@@ -186,7 +186,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     CarrierConfig \
-    Libxml2
+    Libxml2 \
+    rild
 
 # Seccomp
 PRODUCT_COPY_FILES += \

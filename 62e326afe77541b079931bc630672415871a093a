@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18391ab2_13973a41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-11-19T00:15:40Z",
+      "side": 1,
+      "message": "Device is dead, not gonna be revived or official, so at least make builds boot for those who breakfast it.",
+      "revId": "62e326afe77541b079931bc630672415871a093a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
